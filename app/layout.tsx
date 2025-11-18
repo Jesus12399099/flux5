@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "FLUX",
+  title: "FLUXO",
   description: "Aplicativo estilo TikTok feito em Next.js",
 };
 
