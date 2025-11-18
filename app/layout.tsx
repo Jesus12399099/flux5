@@ -3,6 +3,8 @@ export const metadata = {
   description: "Aplicativo estilo TikTok feito em Next.js",
 };
 
+import BottomBar from "./components/BottomBar";
+
 export default function RootLayout({
   children,
 }: {
@@ -12,6 +14,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body style={{ margin: 0, padding: 0, background: "black" }}>
         {children}
+        <BottomBar />
       </body>
     </html>
   );
