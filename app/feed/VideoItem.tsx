@@ -1,11 +1,27 @@
-export default function VideoItem({video}:any){
+"use client";
+
+import { useRef, useEffect } from "react";
+
+export default function VideoItem({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = () => video.play();
+    playVideo();
+  }, []);
+
   return (
-    <div style={{height:"100vh",scrollSnapAlign:"start",position:"relative"}}>
-      <video src={video.url} autoPlay loop muted
-        style={{width:"100%",height:"100%",objectFit:"cover"}}/>
-      <div style={{position:"absolute",right:20,bottom:80,fontSize:24,color:"#00eaff"}}>
-        ❤ {video.likes}
-      </div>
-    </div>
+    <video
+      ref={videoRef}
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{ height: "100vh", width: "100vw", objectFit: "cover" }}
+    />
   );
 }
